@@ -19,4 +19,6 @@ runs:
       run: | 
         echo "Replacing '${{ inputs.old-tag }}' with '${{ inputs.new-tag }}'"
         sed -i "s/${{ inputs.old-tag }}/${{ inputs.new-tag }}/g" ${{ inputs.file-path }}
+        echo "Updated file content: '${{ inputs.file-path }}'"
+        cat ${{ inputs.file-path }}
       shell: bash
