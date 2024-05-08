@@ -17,10 +17,10 @@ runs:
   steps:
     - name: change the line in the text file from "tag 1" to "tag 2"
       run: | 
-        printf "File content: '${{ inputs.file-path }}'"
+        printf "File content: '${{ inputs.file-path }}'\n"
         cat ${{ inputs.file-path }}
         printf "\nReplacing '${{ inputs.old-tag }}' with '${{ inputs.new-tag }}'"
         sed -i "s/${{ inputs.old-tag }}/${{ inputs.new-tag }}/g" ${{ inputs.file-path }}
-        printf "\nUpdated file content: '${{ inputs.file-path }}'"
+        printf "\nUpdated file content: '${{ inputs.file-path }}'\n"
         cat ${{ inputs.file-path }}
       shell: bash
