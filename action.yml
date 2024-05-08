@@ -18,6 +18,5 @@ runs:
     - name: change the line in the text file from "tag 1" to "tag 2"
       run: | 
         echo "Replacing '${{ inputs.old-tag }}' with '${{ inputs.new-tag }}'"
-        cat ${{ inputs.file-path }} >> ${{ runner.temp_dir }}/updated_file.txt
         sed -i "s/${{ inputs.old-tag }}/${{ inputs.new-tag }}/g" ${{ inputs.file-path }}
       shell: bash
