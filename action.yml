@@ -18,11 +18,14 @@ runs:
     - name: change the line in the text file from "tag 1" to "tag 2"
       run: | 
         printf "File content: '${{ inputs.file-path }}'\n"
-        echo ${{ inputs.file-path }} > output_${{ inputs.file-path }}
-        cat output_${{ inputs.file-path }}
+        touch output.txt
+        echo ${{ inputs.file-path }} >> output.txt
+        cat output.txt
+        
         printf "\nReplacing '${{ inputs.old-tag }}' with '${{ inputs.new-tag }}'"
-        sed -i "s/${{ inputs.old-tag }}/${{ inputs.new-tag }}/g" output_${{ inputs.file-path }}
-        printf "\nUpdated file content: 'output_${{ inputs.file-path }}'\n"
-        echo "output_file=output_${{ inputs.file-path }}" >> $GITHUB_OUTPUT
-        cat output_${{ inputs.file-path }}
+        sed -i "s/${{ inputs.old-tag }}/${{ inputs.new-tag }}/g" output.txt
+        
+        printf "\nUpdated file content: 'output.txt'\n"
+        echo "output_file=output.txt" >> $GITHUB_OUTPUT
+        cat output.txt
       shell: bash
