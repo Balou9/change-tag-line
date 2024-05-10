@@ -19,7 +19,7 @@ runs:
       run: | 
         printf "File content: '${{ inputs.file-path }}'\n"
         touch output.txt
-        echo ${{ inputs.file-path }} >> output.txt
+        cat ${{ inputs.file-path }} >> output.txt
         cat output.txt
         
         printf "\nReplacing '${{ inputs.old-tag }}' with '${{ inputs.new-tag }}'"
