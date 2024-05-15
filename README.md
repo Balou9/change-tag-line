@@ -20,8 +20,8 @@ on: push
 jobs:
   change_tag_line_txt:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    <!-- permissions:
+      contents: write -->
     steps:
       - name: Clone the repo
         uses: actions/checkout@v3
