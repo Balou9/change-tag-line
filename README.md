@@ -15,10 +15,7 @@ Part 1
 ```{yaml}
 name: ci
 
-on:
-  push:
-    paths-ignore:
-      - '**.md'
+on: push
 
 jobs:
   change_tag_line_txt:
